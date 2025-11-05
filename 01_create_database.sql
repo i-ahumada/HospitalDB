@@ -8,5 +8,5 @@ IF NOT EXISTS (
    FROM sys.databases
    WHERE name = N'Hospital'
 )
-CREATE DATABASE [Hospital]
+CREATE DATABASE Hospital
 GO

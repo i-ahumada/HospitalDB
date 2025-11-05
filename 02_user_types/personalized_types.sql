@@ -1,13 +1,13 @@
-USE [HospitalInternaciones];
+USE Hospital;
 GO
 
 -- Data types
 
-CREATE TYPE [dbo].[Dni] FROM [varchar](10);
+CREATE TYPE dni_type FROM [varchar](10);
 GO
-CREATE TYPE [dbo].[Matricula] FROM [nvarchar](20);
+CREATE TYPE matricula_type FROM [nvarchar](20);
 GO
-CREATE TYPE [dbo].[Img] FROM VARBINARY(MAX);
+CREATE TYPE imagen_type FROM VARBINARY(MAX);
 GO
-CREATE TYPE [dbo].[Name] FROM NVARCHAR(30)
+CREATE TYPE nombre_type FROM NVARCHAR(30)
 GO
