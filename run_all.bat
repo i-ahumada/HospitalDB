@@ -6,7 +6,7 @@ REM Requiere: SQLCMD (incluido con SQL Server)
 REM ======================================================
 
 REM Cambiar estos valores si tu base de datos o servidor tienen otro nombre
-SET SERVER=(localdb)\HospitalInternaciones
+SET SERVER=.
 SET DATABASE=Hospital
 SET AUTH=-E
 
