@@ -1,4 +1,4 @@
-CREATE PROCEDURE Internacion.ListadoCantCamasDisponiblesPorSector
+CREATE OR ALTER PROCEDURE Internacion.ListadoCantCamasDisponiblesPorSector
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -16,9 +16,11 @@ BEGIN
 END;
 GO
 
-CREATE PROCEDURE ListadoDetalleCamasDisponiblesPorSector
+CREATE OR ALTER PROCEDURE Internacion.ListadoDetalleCamasDisponiblesPorSector
 AS
 BEGIN
+    SET NOCOUNT ON;
+    
     SELECT
         s.idSector,
         s.descripcion AS Sector,
@@ -35,7 +37,7 @@ BEGIN
 END;
 GO
 
-CREATE PROCEDURE Internacion.ListadoComentariosEnInternacion
+CREATE OR ALTER PROCEDURE Internacion.ListadoComentariosEnInternacion
 @dniPaciente dni_type,
 @idInternacion INT
 AS
@@ -47,7 +49,7 @@ BEGIN
         Seguimiento.ComentadaDurante cd
     INNER JOIN Internacion i ON i.idInternacion = cd.idInternacion
     WHERE i.dni = @dniPaciente
-    AND i.idIntenacion = @idInternacion
+    AND i.idInternacion = @idInternacion
     ORDER BY cd.fecha
 END;
 GO
