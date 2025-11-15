@@ -1,3 +1,6 @@
+USE [Hospital]
+GO
+
 CREATE OR ALTER PROCEDURE Internacion.ListadoDetalleCamasDisponiblesPorSector
 AS
 BEGIN
@@ -15,9 +18,10 @@ BEGIN
             INNER JOIN Habitacion h ON s.idSector = h.idSector
             INNER JOIN Cama c ON h.idHabitacion = c.idHabitacion
         WHERE c.ocupada = 0
-        ORDER BY s.idHabitacion, s.descripcion, h.idHabitacion, c.nroCama;
+        ORDER BY s.idSector, s.descripcion, h.idHabitacion, c.nroCama;
     END TRY
     BEGIN CATCH
         THROW;  -- Reenvía el error al cliente
     END CATCH;
 END;
+GO

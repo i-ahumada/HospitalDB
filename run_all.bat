@@ -56,6 +56,19 @@ echo ========================================
 sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "05_constraints\foreign_keys.sql"
 
 echo ========================================
+echo CARGANDO DATOS INICIALES
+echo ========================================
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_data\carga.sql"
+
+echo ========================================
+echo APLICANDO PROCEDURES
+echo ========================================
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "08_procedures\cant_camas_disponibles_procedure.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "08_procedures\comentarios_procedure.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "08_procedures\consultar_auditorias_procedure.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "08_procedures\detalle_camas_disponibles_procedure.sql"
+
+echo ========================================
 echo TODO FINALIZADO EXITOSAMENTE
 echo ========================================
 pause

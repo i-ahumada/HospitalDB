@@ -1,3 +1,6 @@
+USE [Hospital];
+GO
+
 -- Tabla Internacion.Sector
 INSERT INTO Internacion.Sector (descripcion) VALUES
 ('Cardiología'),                -- 1
@@ -535,3 +538,4 @@ INSERT INTO Internacion.Vacacion (matricula, fechaInicioVacacion, fechaFinVacaci
 (1011, '2025-11-12', '2025-11-22'), -- Mariana Villar
 (1012, '2025-12-01', '2025-12-10'), -- Javier Ríos
 (1013, '2025-11-20', '2025-11-30'); -- Verónica Ferrari
+GO

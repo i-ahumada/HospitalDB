@@ -1,3 +1,6 @@
+USE [Hospital]
+GO
+
 CREATE OR ALTER PROCEDURE Internacion.ListadoCantCamasDisponiblesPorSector
 AS
 BEGIN
@@ -18,3 +21,4 @@ BEGIN
         THROW; --Reenví­a el error al cliente
     END CATCH
 END;
+GO

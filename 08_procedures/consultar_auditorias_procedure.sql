@@ -1,3 +1,6 @@
+USE [Hospital]
+GO
+
 CREATE OR ALTER PROCEDURE Guardias.ConsultarAuditoriaAsignacionGuardias
 (
     @usuario       VARCHAR(100) = NULL,
@@ -37,3 +40,5 @@ BEGIN
             )
     ORDER BY fechaHora DESC, idAuditoria DESC;
 END;
+
+GO

@@ -1,3 +1,6 @@
+USE [Hospital];
+GO
+
 -- VACIAR TODAS LAS TABLAS
 DELETE FROM Seguimiento.ComentadaDurante;
 DELETE FROM Seguimiento.Recorrido;
@@ -26,3 +29,5 @@ DBCC CHECKIDENT ('Guardias.Especializacion', RESEED, 0);
 DBCC CHECKIDENT ('Internacion.Sector', RESEED, 0);
 DBCC CHECKIDENT ('Internacion.Internacion', RESEED, 0);
 DBCC CHECKIDENT ('Auditoria.LogGuardias', RESEED, 0);
+
+GO

@@ -1,3 +1,6 @@
+USE [Hospital]
+GO
+
 CREATE OR ALTER PROCEDURE Seguimiento.ListarComentariosInternacion
 (
     @idInternacion INT
@@ -28,3 +31,4 @@ BEGIN
         THROW;  -- Reenvía el error al cliente
     END CATCH;
 END;
+GO
