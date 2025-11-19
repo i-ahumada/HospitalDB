@@ -6,7 +6,7 @@ REM Requiere: SQLCMD (incluido con SQL Server)
 REM ======================================================
 
 REM Cambiar estos valores si tu base de datos o servidor tienen otro nombre
-SET SERVER=(localdb)\HospitalInternaciones
+SET SERVER=.
 SET DATABASE=Hospital
 SET AUTH=-E
 
@@ -63,6 +63,19 @@ sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_triggers\02_TR_UbicadaEn_FechaAsi
 sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_triggers\03_TR_Habitacion_Orientacion.sql"
 sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_triggers\04_TR_Internacion_DistintoPacienteYMedico.sql"
 
+
+echo ========================================
+echo CARGANDO DATOS INICIALES
+echo ========================================
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_data\carga.sql"
+
+echo ========================================
+echo APLICANDO PROCEDURES
+echo ========================================
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "08_procedures\cant_camas_disponibles_procedure.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "08_procedures\comentarios_procedure.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "08_procedures\consultar_auditorias_procedure.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "08_procedures\detalle_camas_disponibles_procedure.sql"
 
 echo ========================================
 echo TODO FINALIZADO EXITOSAMENTE
