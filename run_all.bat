@@ -56,6 +56,15 @@ echo ========================================
 sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "05_constraints\foreign_keys.sql"
 
 echo ========================================
+echo APLICANDO TRIGGERS
+echo ========================================
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_triggers\01_TR_Internacion_FechaFin.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_triggers\02_TR_UbicadaEn_FechaAsignacion.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_triggers\03_TR_Habitacion_Orientacion.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_triggers\04_TR_Internacion_DistintoPacienteYMedico.sql"
+
+
+echo ========================================
 echo TODO FINALIZADO EXITOSAMENTE
 echo ========================================
 pause
