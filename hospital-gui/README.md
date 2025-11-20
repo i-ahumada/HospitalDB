@@ -199,4 +199,4 @@ Causa:
 
 Solución:
 
-* Envolver errores en `NextResponse.json()` (ya implementado en este README)
+* Envolver errores en `NextResponse.json()`
