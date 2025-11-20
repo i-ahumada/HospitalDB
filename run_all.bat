@@ -53,7 +53,20 @@ sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "04_tables\18_log_guardias.sql"
 echo ========================================
 echo APLICANDO CONSTRAINTS
 echo ========================================
-sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "05_constraints\foreign_keys.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "05_constraints\00_foreign_keys.sql"
+
+echo ========================================
+echo CARGANDO DATOS INICIALES
+echo ========================================
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_data\00_carga.sql"
+
+echo ========================================
+echo APLICANDO PROCEDURES
+echo ========================================
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "08_procedures\00_cant_camas_disponibles_procedure.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "08_procedures\01_comentarios_procedure.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "08_procedures\02_consultar_auditorias_procedure.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "08_procedures\03_detalle_camas_disponibles_procedure.sql"
 
 echo ========================================
 echo APLICANDO TRIGGERS
@@ -62,20 +75,6 @@ sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_triggers\01_TR_Internacion_FechaF
 sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_triggers\02_TR_UbicadaEn_FechaAsignacion.sql"
 sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_triggers\03_TR_Habitacion_Orientacion.sql"
 sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_triggers\04_TR_Internacion_DistintoPacienteYMedico.sql"
-
-
-echo ========================================
-echo CARGANDO DATOS INICIALES
-echo ========================================
-sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_data\carga.sql"
-
-echo ========================================
-echo APLICANDO PROCEDURES
-echo ========================================
-sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "08_procedures\cant_camas_disponibles_procedure.sql"
-sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "08_procedures\comentarios_procedure.sql"
-sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "08_procedures\consultar_auditorias_procedure.sql"
-sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "08_procedures\detalle_camas_disponibles_procedure.sql"
 
 echo ========================================
 echo TODO FINALIZADO EXITOSAMENTE
