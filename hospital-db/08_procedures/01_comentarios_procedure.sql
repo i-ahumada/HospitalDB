@@ -20,9 +20,9 @@ BEGIN
         FROM ComentadaDurante cd
         JOIN Recorrido r 
             ON cd.idRonda = r.idRonda AND cd.fecha = r.fecha
-        JOIN Medico m 
+        JOIN Internacion.Medico m 
             ON m.matricula = r.matricula
-        JOIN Persona p
+        JOIN Internacion.Persona p
             ON p.dni = m.dni
         WHERE cd.idInternacion = @idInternacion
         ORDER BY cd.fecha;

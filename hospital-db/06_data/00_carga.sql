@@ -1,4 +1,4 @@
-USE [Hospital];
+﻿USE [Hospital];
 GO
 
 -- Tabla Internacion.Sector

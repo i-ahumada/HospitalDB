@@ -6,6 +6,7 @@ export async function GET() {
     const query = `
         SELECT 
             i.idInternacion,
+            i.dni,
             p.apellido + ', ' + p.nombre AS Paciente,
             i.fechaInicio,
             i.fechaFin
