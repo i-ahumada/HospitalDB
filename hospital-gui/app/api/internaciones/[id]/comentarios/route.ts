@@ -5,9 +5,7 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   try {
-    console.log("Entro")
     const {id} = await params;
-    console.log("ID: ", id)
 
     const pool = await getPool();
     const result = await pool

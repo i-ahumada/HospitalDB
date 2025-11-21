@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Table from "./components/Table";
+import Link from "next/link";
 
 export default function HomePage() {
   const [data, setData] = useState([]);
@@ -22,11 +23,6 @@ export default function HomePage() {
         .then(setInternaciones);
   }, []);
 
-  async function getAuditorias() {
-    fetch("/api/auditorias")
-        .then((r) => r.json())
-        .then(setData);
-  }
   async function getPersonas() {
     fetch("/api/personas")
         .then((r) => r.json())
@@ -37,6 +33,18 @@ export default function HomePage() {
         .then((r) => r.json())
         .then(setData);
   }
+  async function getDetalleCamasDisponibles() {
+    fetch("/api/camas/detalle")
+        .then((r) => r.json())
+        .then(setData);
+  }
+
+  async function getCantidadCamasDisponibles() {
+    fetch("/api/camas/disponibles")
+        .then((r) => r.json())
+        .then(setData);
+  }
+
   async function getMedicos() {
     fetch("/api/personas/medicos").then((r) => r.json())
         .then(setData);
@@ -80,7 +88,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-neutral-900 text-neutral-200 p-6">
 
         <h1 className="text-4xl font-semibold mb-6 text-neutral-100">
-            Hospital – Dashboard
+            Hospital – <Link href="/auditorias"> Dashboard / <span className="text-neutral-600">Auditorias</span></Link>
         </h1>
 
         <div className="flex gap-4 mb-8">
@@ -124,6 +132,8 @@ export default function HomePage() {
             <button onClick={getMedicos} className="link-btn">Médicos</button>
             <button onClick={getMedicosEspecializados} className="link-btn">Especializados</button>
             <button onClick={getInternaciones} className="link-btn">Internaciones</button>
+            <button onClick={getDetalleCamasDisponibles} className="link-btn">Detalle Camas Disponibles</button>
+            <button onClick={getCantidadCamasDisponibles} className="link-btn">Cantidad Camas Disponibles</button>
         </div>
 
         <Table data={data} />

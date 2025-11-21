@@ -56,25 +56,27 @@ echo ========================================
 sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "05_constraints\00_foreign_keys.sql"
 
 echo ========================================
+echo APLICANDO TRIGGERS
+echo ========================================
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_triggers\01_TR_Internacion_FechaFin.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_triggers\02_TR_UbicadaEn_FechaAsignacion.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_triggers\03_TR_Habitacion_Orientacion.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_triggers\04_TR_Internacion_DistintoPacienteYMedico.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_triggers\05_TR_Guardia_LogGuardias.sql"
+
+echo ========================================
 echo CARGANDO DATOS INICIALES
 echo ========================================
-sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_data\00_carga.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "07_data\00_carga.sql"
 
 echo ========================================
 echo APLICANDO PROCEDURES
 echo ========================================
-sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "08_procedures\00_cant_camas_disponibles_procedure.sql"
-sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "08_procedures\01_comentarios_procedure.sql"
-sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "08_procedures\02_consultar_auditorias_procedure.sql"
-sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "08_procedures\03_detalle_camas_disponibles_procedure.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_procedures\00_SP_cant_camas_disponibles.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_procedures\01_SP_comentarios.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_procedures\02_SP_consultar_auditorias.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_procedures\03_SP_detalle_camas_disponibles.sql"
 
-echo ========================================
-echo APLICANDO TRIGGERS
-echo ========================================
-sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_triggers\01_TR_Internacion_FechaFin.sql"
-sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_triggers\02_TR_UbicadaEn_FechaAsignacion.sql"
-sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_triggers\03_TR_Habitacion_Orientacion.sql"
-sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_triggers\04_TR_Internacion_DistintoPacienteYMedico.sql"
 
 echo ========================================
 echo TODO FINALIZADO EXITOSAMENTE

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 .link-btn {
-  @apply text-neutral-300 underline hover:text-neutral-100 transition;
+  @apply text-neutral-300 underline hover:text-neutral-100 transition cursor-pointer;
 }
 
 :root {
