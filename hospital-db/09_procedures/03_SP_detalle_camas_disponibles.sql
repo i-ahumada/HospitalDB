@@ -21,7 +21,7 @@ BEGIN
         ORDER BY s.idSector, s.descripcion, h.idHabitacion, c.nroCama;
     END TRY
     BEGIN CATCH
-        THROW;  -- Reenvía el error al cliente
+        THROW;
     END CATCH;
 END;
 GO

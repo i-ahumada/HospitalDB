@@ -1,10 +1,14 @@
 USE [Hospital];
 GO
-CREATE TRIGGER Internacion.TR_Habitacion_Orientacion
+
+
+CREATE OR ALTER TRIGGER Internacion.TR_Habitacion_Orientacion
 ON Internacion.Habitacion
 INSTEAD OF INSERT -- Por el identity, sino si falla el rollback se come un indice y pasa de ej 99 a 101
 AS
 BEGIN
+    SET NOCOUNT ON;
+
     IF EXISTS (
         SELECT 1
         FROM inserted i
@@ -12,7 +16,6 @@ BEGIN
     )
     BEGIN
         RAISERROR(N'Error de Validación: La orientación debe ser uno de los siguientes valores: Norte, Sur, Este u Oeste.', 16, 1);
-        ROLLBACK TRANSACTION; 
         RETURN;
     END
 

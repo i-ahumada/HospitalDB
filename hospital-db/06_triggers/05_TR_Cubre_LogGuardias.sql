@@ -1,7 +1,7 @@
 USE Hospital;
 GO
 
-CREATE OR ALTER TRIGGER Guardias.trg_LogGuardias
+CREATE OR ALTER TRIGGER Guardias.TR_Guardia_LogGuardias
 ON Guardias.Cubre
 AFTER INSERT, UPDATE, DELETE
 AS

@@ -11,7 +11,7 @@ export default function AuditPage() {
   return (
     <div className="min-h-screen bg-neutral-900 text-neutral-200 p-6">
       <h1 className="text-4xl font-semibold mb-6 text-neutral-100">
-        Hospital – <Link href="/"> <span className="text-neutral-600">Dashboard</span> / Auditorias</Link>
+        Hospital – <Link href="/"> <span className="text-neutral-600">Dashboard /</span></Link> Auditorias / <Link href="/recorridos"><span className="text-neutral-600"> Recorridos </span></Link>
       </h1>
       <div className="w-[30%]">
         <AuditForm onResult={setData} />

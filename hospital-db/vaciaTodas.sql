@@ -22,6 +22,7 @@ DELETE FROM Internacion.Sector;
 
 DELETE FROM Internacion.Paciente;
 DELETE FROM Internacion.Persona;
+DELETE FROM Auditoria.LogGuardias;
 
 -- Reiniciar identidades (IDs automáticos)
 DBCC CHECKIDENT ('Internacion.Habitacion', RESEED, 0);

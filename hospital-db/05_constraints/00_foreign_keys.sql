@@ -123,10 +123,9 @@ ADD CONSTRAINT FK_CD_Internacion
     ON DELETE CASCADE;
 
 ALTER TABLE Seguimiento.ComentadaDurante
-ADD CONSTRAINT FK_CD_Ronda 
-    FOREIGN KEY (idRonda) 
-    REFERENCES Seguimiento.Ronda(idRonda)
-    ON DELETE CASCADE;
+ADD CONSTRAINT FK_CD_Recorrido 
+    FOREIGN KEY (idRonda, fecha) 
+    REFERENCES Seguimiento.Recorrido(idRonda, fecha);
 
 GO
 

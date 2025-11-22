@@ -1,6 +1,8 @@
 USE [Hospital];
 GO
-CREATE TRIGGER Internacion.TR_Internacion_FechaFin
+
+
+CREATE OR ALTER TRIGGER Internacion.TR_Internacion_FechaFin
 ON Internacion.Internacion
 AFTER UPDATE -- Porque deberia ser NULL fechaFin y se updatea cuando ese valor cuando se termina la internacion
 AS
@@ -12,7 +14,6 @@ BEGIN
     )
     BEGIN
         RAISERROR(N'Error de Validación: La fecha de finalizacion de la internación debe ser mayor que la del inicio de esta.', 16, 1);
-        ROLLBACK TRANSACTION; 
         RETURN;
     END
     IF EXISTS (
@@ -23,7 +24,6 @@ BEGIN
     )
     BEGIN
         RAISERROR(N'Error de Validación: La fecha de finalizacion de la internación debe ser mayor o igual que la fecha de la última cama asignada a esta', 16, 2);
-        ROLLBACK TRANSACTION; 
         RETURN;
     END
 END

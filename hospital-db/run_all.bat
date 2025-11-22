@@ -54,6 +54,7 @@ echo ========================================
 echo APLICANDO CONSTRAINTS
 echo ========================================
 sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "05_constraints\00_foreign_keys.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "05_constraints\01_checks.sql"
 
 echo ========================================
 echo APLICANDO TRIGGERS
@@ -62,7 +63,10 @@ sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_triggers\01_TR_Internacion_FechaF
 sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_triggers\02_TR_UbicadaEn_FechaAsignacion.sql"
 sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_triggers\03_TR_Habitacion_Orientacion.sql"
 sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_triggers\04_TR_Internacion_DistintoPacienteYMedico.sql"
-sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_triggers\05_TR_Guardia_LogGuardias.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_triggers\05_TR_Cubre_LogGuardias.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_triggers\06_TR_Recorrido_Fecha_IoU.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_triggers\08_TR_Vacacion_FechaFin.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_triggers\09_TR_Cubre_TomaGuardia_MaxGuardias.sql"
 
 echo ========================================
 echo CARGANDO DATOS INICIALES
@@ -76,7 +80,9 @@ sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_procedures\00_SP_cant_camas_dispo
 sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_procedures\01_SP_comentarios.sql"
 sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_procedures\02_SP_consultar_auditorias.sql"
 sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_procedures\03_SP_detalle_camas_disponibles.sql"
-
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_procedures\04_SP_modificar_fecha_recorridos.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_procedures\05_SP_procentaje_camas_disponibles.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_triggers\07_TR_Recorrido_Fecha_IoI.sql"
 
 echo ========================================
 echo TODO FINALIZADO EXITOSAMENTE

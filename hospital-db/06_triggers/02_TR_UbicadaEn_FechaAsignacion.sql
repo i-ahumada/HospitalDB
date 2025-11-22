@@ -1,6 +1,8 @@
 USE [Hospital];
 GO
-CREATE TRIGGER Internacion.TR_UbicadaEn_FechaEntrada
+
+
+CREATE OR ALTER TRIGGER Internacion.TR_UbicadaEn_FechaEntrada
 ON Internacion.UbicadaEn
 AFTER INSERT
 AS
@@ -13,7 +15,6 @@ BEGIN
     )
     BEGIN
         RAISERROR(N'Error de Validación: La fecha de la asignación de cama no puede ser anterior a la fecha de inicio de la internación.', 16, 1);
-        ROLLBACK TRANSACTION; 
         RETURN;
     END
 END

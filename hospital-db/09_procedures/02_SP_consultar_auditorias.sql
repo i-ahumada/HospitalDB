@@ -9,18 +9,26 @@ CREATE OR ALTER PROCEDURE Guardias.ConsultarLogGuardias
 )
 AS
 BEGIN
-    SET NOCOUNT ON;
+    SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
 
-    SELECT 
-        *
-    FROM Auditoria.LogGuardias
-    
-    --Filtra por los parámetros proporcionados, son todos opcionales
-    WHERE
-        (@usuario IS NULL OR usuario = @usuario)
-        AND (@accion IS NULL OR accion = @accion)
-        AND (@fecha IS NULL OR fecha = @fecha)
-    ORDER BY fecha DESC, idLog DESC;
+    BEGIN TRY
+        BEGIN TRAN;
+
+        SELECT 
+            *
+        FROM Auditoria.LogGuardias
+        WHERE
+            (@usuario IS NULL OR usuario = @usuario)
+            AND (@accion IS NULL OR accion = @accion)
+            AND (@fecha IS NULL OR fecha = @fecha)
+        ORDER BY fecha DESC, idLog DESC;
+
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        IF @@TRANCOUNT > 0 ROLLBACK;
+
+        THROW;
+    END CATCH
 END;
-
 GO

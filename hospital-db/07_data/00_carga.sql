@@ -442,10 +442,12 @@ INSERT INTO Seguimiento.Recorrido (idRonda, fecha, matricula) VALUES
 (1, '2025-10-13', 1009),
 (2, '2025-10-13', 1009),
 (3, '2025-10-13', 1012),
+(3, '2025-12-1', 1012),
 -- Martes
 (4, '2025-10-07', 1012),
 (5, '2025-10-07', 1008),
 (6, '2025-10-07', 1003),
+(6, '2025-12-09', 1003),
 -- Miércoles
 (7, '2025-10-01', 1012),
 (8, '2025-10-01', 1004),
@@ -458,7 +460,6 @@ INSERT INTO Seguimiento.Recorrido (idRonda, fecha, matricula) VALUES
 (13, '2025-10-31', 1009),
 (14, '2025-10-31', 1003),
 (15, '2025-10-31', 1004);
-
 
 -- Tabla Seguimiento.ComentadaDurante
 INSERT INTO Seguimiento.ComentadaDurante (idInternacion, idRonda, fecha, comentario) VALUES

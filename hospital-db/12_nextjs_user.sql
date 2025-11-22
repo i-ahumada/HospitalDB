@@ -2,6 +2,7 @@ USE master;
 GO
 
 CREATE LOGIN hospital_user WITH PASSWORD = 'Hospital2025!';
+
 GO
 
 USE Hospital;

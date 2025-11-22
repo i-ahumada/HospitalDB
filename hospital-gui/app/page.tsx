@@ -44,6 +44,11 @@ export default function HomePage() {
         .then((r) => r.json())
         .then(setData);
   }
+  async function getCantidadCamasPorcentajeDisponibles() {
+    fetch("/api/camas/porcentaje")
+        .then((r) => r.json())
+        .then(setData);
+  }
 
   async function getMedicos() {
     fetch("/api/personas/medicos").then((r) => r.json())
@@ -88,7 +93,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-neutral-900 text-neutral-200 p-6">
 
         <h1 className="text-4xl font-semibold mb-6 text-neutral-100">
-            Hospital – <Link href="/auditorias"> Dashboard / <span className="text-neutral-600">Auditorias</span></Link>
+            Hospital – Dashboard / <span className="text-neutral-600"><Link href="/auditorias"> Auditorias </Link> /<Link href="/recorridos"> Recorridos </Link> </span>
         </h1>
 
         <div className="flex gap-4 mb-8">
@@ -134,6 +139,7 @@ export default function HomePage() {
             <button onClick={getInternaciones} className="link-btn">Internaciones</button>
             <button onClick={getDetalleCamasDisponibles} className="link-btn">Detalle Camas Disponibles</button>
             <button onClick={getCantidadCamasDisponibles} className="link-btn">Cantidad Camas Disponibles</button>
+            <button onClick={getCantidadCamasPorcentajeDisponibles} className="link-btn">Porcentaje Camas Disponibles</button>
         </div>
 
         <Table data={data} />

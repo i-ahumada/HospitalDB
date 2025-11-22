@@ -1,6 +1,8 @@
 USE [Hospital];
 GO
-CREATE TRIGGER Internacion.TR_Internacion_DistintoPacienteYMedico
+
+
+CREATE OR ALTER TRIGGER Internacion.TR_Internacion_DistintoPacienteYMedico
 ON Internacion.Internacion
 INSTEAD OF INSERT
 AS
@@ -13,7 +15,6 @@ BEGIN
     )
     BEGIN
         RAISERROR(N'Error de Validación: Un paciente no puede ser su propio médico.', 16, 1);
-        ROLLBACK TRANSACTION; 
         RETURN;
     END
 
