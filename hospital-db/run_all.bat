@@ -65,7 +65,6 @@ sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_triggers\03_TR_Habitacion_Orienta
 sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_triggers\04_TR_Internacion_DistintoPacienteYMedico.sql"
 sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_triggers\05_TR_Cubre_LogGuardias.sql"
 sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_triggers\06_TR_Recorrido_Fecha_IoU.sql"
-sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_triggers\08_TR_Vacacion_FechaFin.sql"
 sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_triggers\09_TR_Cubre_TomaGuardia_MaxGuardias.sql"
 
 echo ========================================
