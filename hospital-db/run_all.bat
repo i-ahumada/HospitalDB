@@ -82,6 +82,7 @@ sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "08_procedures\03_SP_detalle_camas_di
 sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "08_procedures\04_SP_modificar_fecha_recorridos.sql"
 sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "08_procedures\05_SP_procentaje_camas_disponibles.sql"
 sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_triggers\07_TR_Recorrido_Fecha_IoI.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "nextjs_user.sql"
 
 echo ========================================
 echo TODO FINALIZADO EXITOSAMENTE

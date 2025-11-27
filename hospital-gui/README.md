@@ -1,4 +1,4 @@
-# Conexión a SQL Server (SQLEXPRESS) desde Next.js
+isntal# Conexión a SQL Server (SQLEXPRESS) desde Next.js
 
 Este documento explica cómo configurar **SQL Server Express** en Windows para que Next.js pueda conectarse correctamente usando el paquete `mssql`.
 
@@ -15,7 +15,7 @@ Incluye:
 
 # 1- Habilitar TCP/IP
 
-Abrí (`CTRL + r`):
+Abrí (`Win + r`):
 
 ```
 SQLServerManager16.msc

@@ -3,7 +3,7 @@ import * as sql from "mssql";
 const config = {
   user: "hospital_user",
   password: "Hospital2025!",
-  server: "localhost\\SQLEXPRESS",
+  server: "localhost",
   database: "Hospital",
   options: {
     trustServerCertificate: true
