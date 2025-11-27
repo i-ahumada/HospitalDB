@@ -65,7 +65,7 @@ sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_triggers\03_TR_Habitacion_Orienta
 sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_triggers\04_TR_Internacion_DistintoPacienteYMedico.sql"
 sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_triggers\05_TR_Cubre_LogGuardias.sql"
 sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_triggers\06_TR_Recorrido_Fecha_IoU.sql"
-sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_triggers\09_TR_Cubre_TomaGuardia_MaxGuardias.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_triggers\08_TR_Cubre_TomaGuardia_MaxGuardias.sql"
 
 echo ========================================
 echo CARGANDO DATOS INICIALES
@@ -75,12 +75,12 @@ sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "07_data\00_carga.sql"
 echo ========================================
 echo APLICANDO PROCEDURES
 echo ========================================
-sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_procedures\00_SP_cant_camas_disponibles.sql"
-sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_procedures\01_SP_comentarios.sql"
-sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_procedures\02_SP_consultar_auditorias.sql"
-sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_procedures\03_SP_detalle_camas_disponibles.sql"
-sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_procedures\04_SP_modificar_fecha_recorridos.sql"
-sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "09_procedures\05_SP_procentaje_camas_disponibles.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "08_procedures\00_SP_cant_camas_disponibles.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "08_procedures\01_SP_comentarios.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "08_procedures\02_SP_consultar_auditorias.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "08_procedures\03_SP_detalle_camas_disponibles.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "08_procedures\04_SP_modificar_fecha_recorridos.sql"
+sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "08_procedures\05_SP_procentaje_camas_disponibles.sql"
 sqlcmd -S %SERVER% %AUTH% -d %DATABASE% -i "06_triggers\07_TR_Recorrido_Fecha_IoI.sql"
 
 echo ========================================
