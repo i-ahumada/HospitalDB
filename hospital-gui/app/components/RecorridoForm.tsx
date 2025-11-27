@@ -7,23 +7,40 @@ export default function RecorridoForm({ onResult }: any) {
   const [fechaActual, setFechaActual] = useState("");
   const [nuevaFecha, setNuevaFecha] = useState("");
 
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+
   async function handleSubmit(e: any) {
     e.preventDefault();
+    setError(null);
+    setLoading(true);
 
-    const body = {
-      usuario: idRonda,            // mapea a idRonda
-      accion: fechaActual,         // mapea a fechaActual
-      fecha: nuevaFecha,           // mapea a nuevaFecha
-    };
+    try {
+      const body = {
+        usuario: idRonda,
+        accion: fechaActual,
+        fecha: nuevaFecha,
+      };
 
-    const res = await fetch("/api/recorridos", {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    });
+      const res = await fetch("/api/recorridos", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
 
-    const data = await res.json();
-    onResult(data);
+      if (!res.ok) {
+        const errText = await res.text();
+        throw new Error(errText || "Error desconocido en el servidor");
+      }
+
+      const data = await res.json();
+      onResult(data);
+      
+    } catch (err: any) {
+      setError(err.message || "Error al procesar la solicitud");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -68,11 +85,18 @@ export default function RecorridoForm({ onResult }: any) {
         />
       </div>
 
+      {error && (
+        <div className="text-red-400 text-sm border border-red-700 p-2 rounded bg-red-900/20">
+          {error}
+        </div>
+      )}
+
       <button
         type="submit"
-        className="bg-neutral-700 hover:bg-neutral-600 text-neutral-200 px-4 py-2 rounded transition"
+        disabled={loading}
+        className="bg-neutral-700 hover:bg-neutral-600 disabled:bg-neutral-800 disabled:text-neutral-500 text-neutral-200 px-4 py-2 rounded transition"
       >
-        Actualizar
+        {loading ? "Procesando..." : "Actualizar"}
       </button>
     </form>
   );
