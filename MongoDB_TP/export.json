@@ -1,0 +1,27 @@
+{
+  "type": "Compass Connections",
+  "version": {
+    "$numberInt": "1"
+  },
+  "connections": [
+    {
+      "id": "45c75ce8-b443-462f-b04e-15f145af0ffb",
+      "lastUsed": {
+        "$date": {
+          "$numberLong": "1763678314331"
+        }
+      },
+      "favorite": {
+        "name": "TiendaComputacion",
+        "color": "color5"
+      },
+      "savedConnectionType": "favorite",
+      "connectionOptions": {
+        "connectionString": "mongodb://localhost:27017/",
+        "oidc": {
+          "serializedState": "eyJvaWRjUGx1Z2luU3RhdGVWZXJzaW9uIjoxLCJzdGF0ZSI6W119"
+        }
+      }
+    }
+  ]
+}
